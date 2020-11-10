@@ -28,26 +28,27 @@
 <h4>Priorities Missing: <%= @t.missing_priority.to_sentence%> </h4>
 
 <h4>Update Priority </h4>
-<%= form_tag to_do_list_update_priority_path do %>
-  <% @t.priority_not_labelled.each do |task| %>
-    <%= fields_for "task[]", task do |f| %>
-      <div class="form-group space">
-      Task Name: <%= f.label f.object.name %>,
-      Description: <%= f.label f.object.description %>,
-      <%= hidden_field_tag 'to_do_list_id', f.object.to_do_list.id %>
-      Priority:
-      <%= f.select :priority, @t.missing_priority, class: 'form-control' %>
-      <%= link_to '🗑', to_do_list_task_path(@t, f.object.id), method: :delete %>
-    </div>
+<% if @t.present? %>
+  <%= form_tag to_do_list_update_priority_path do %>
+    <% @t.priority_not_labelled.each do |task| %>
+      <%= fields_for "task[]", task do |f| %>
+        <div class="form-group space">
+        Task Name: <%= f.label f.object.name %>,
+        Description: <%= f.label f.object.description %>,
+        <%= hidden_field_tag 'to_do_list_id', f.object.to_do_list.id %>
+        Priority:
+        <%= f.select :priority, @t.missing_priority, class: 'form-control' %>
+        <%= link_to '🗑', to_do_list_task_path(@t, f.object.id), method: :delete %>
+      </div>
+      <% end %>
     <% end %>
+    <div class="form-group space">
+      <%= submit_tag 'Update Priority', class: 'btn btn-warning pull-add-btn' %>
+    </div>
   <% end %>
-  <div class="form-group space">
-    <%= submit_tag 'Update Priority', class: 'btn btn-warning pull-add-btn' %>
-  </div>
 <% end %>
 
 <h4>Create New Task </h4>
-
 <%= form_for [@t, @t.tasks.new] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

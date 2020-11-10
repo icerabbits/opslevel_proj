@@ -1,6 +1,9 @@
 class ToDoListController < ApplicationController
   def index
     @t = ToDoList.first
+    if @t.blank?
+      @t = ToDoList.create(name: "List 1")
+    end
   end
 
   def load_sample_data
