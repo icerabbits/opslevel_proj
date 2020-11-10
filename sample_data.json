@@ -1,0 +1,37 @@
+[
+  {
+    "name": "do laundry",
+    "description": "wash clothes",
+    "priority": 6
+  },
+  {
+    "name": "homework",
+    "description": "CSC373 assignment 2",
+    "priority": 2
+  },
+  {
+    "name": "cook dinner",
+    "description": "preheat oven for pizza at 6 pm",
+    "priority": 3
+  },
+  {
+    "name": "walk the dog",
+    "description": "remember to bring plastic bag",
+    "priority": 7
+  },
+  {
+    "name": "pay bills",
+    "description": "pay credit card bill for RBC",
+    "priority": 1
+  },
+  {
+    "name": "buy gift",
+    "description": "buy brother's bday gift",
+    "priority": ""
+  },
+  {
+    "name": "pick up order",
+    "description": "pick up amazon shipment from canada post",
+    "priority": ""
+  }
+]
